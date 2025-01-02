@@ -37,7 +37,7 @@
                     <h2>Palagi Lyrics</h2>
                     <p><strong>By: TJ Monterde</strong></p>
                     <div class="audio-container">
-                        <audio controls autoplay>
+                        <audio id="audio1" autoplay controls >
                             <source src="Palagi (Live at The Cozy Cove) - TJ Monterde.mp3" type="audio/mpeg">
                             Your browser does not support the audio element.
                         </audio>
@@ -95,7 +95,7 @@
                 <h2>Strong Lyrics</h2>
                 <p><strong>By: One Direction</strong></p>
                 <div class="audio-container">
-                    <audio controls autoplay>
+                    <audio id="audio2"  controls >
                         <source src="One Direction - Strong (Audio).mp3" type="audio/mpeg">
                         Your browser does not support the audio element.
                     </audio>
@@ -144,7 +144,7 @@
                 <h2>Body Back Lyrics</h2>
                 <p><strong>By: Gryffin</strong></p>
                 <div class="audio-container">
-                    <audio controls autoplay>
+                    <audio id="audio3"  controls >
                         <source src="Gryffin - Body Back (Lyrics) ft. Maia Wright.mp3" type="audio/mpeg">
                     
                     </audio>
@@ -238,7 +238,7 @@ Baby, bring your body back to me <br>
                 <h2>Be Kind</h2>
                 <p><strong>By: Halsey</strong></p>
                 <div class="audio-container">
-                    <audio controls autoplay>
+                    <audio id="audio4"  controls >
                         <source src="Marshmello & Halsey - Be Kind (Lyrics).mp3" type="audio/mpeg">
                     </audio>
                 </div>
@@ -304,7 +304,7 @@ Ah
                 <h2>Cheating On You</h2>
                 <p><strong>By: Charlie Puth</strong></p>
                 <div class="audio-container">
-                    <audio controls autoplay>
+                    <audio id="audio5"  controls >
                         <source src="Charlie Puth - Cheating on You [Official Video].mp3" type="audio/mpeg">
 
                     </audio>
@@ -375,7 +375,7 @@ And you said goodbye <br>
                 <h2>Without Me</h2>
                 <p><strong>By: Halsey</strong></p>
                 <div class="audio-container">
-                    <audio controls autoplay>
+                    <audio id="audio6"  controls >
                         <source src="Halsey - Without Me.mp3" type="audio/mpeg">
                         Your browser does not support the audio element.
                     </audio>
@@ -451,7 +451,7 @@ And you said goodbye <br>
                 <h2>Magkabilang Mundo</h2>
                 <p><strong>By: Jireh Lim</strong></p>
                 <div class="audio-container">
-                    <audio controls autoplay>
+                    <audio id="audio7"  controls >
                         <source src="Jireh Lim - Magkabilang Mundo (Official Music Video).mp3" type="audio/mpeg">
                     </audio>
                 </div>
@@ -501,7 +501,7 @@ Balang araw ay makakapiling ka<br>
                 <h2>It's not fine</h2>
                 <p><strong>By: Taeyon</strong></p>
                 <div class="audio-container">
-                    <audio controls autoplay>
+                    <audio id="audio8"  controls >
                         <source src="TAEYEON 태연 'Fine' MV.mp3" type="audio/mpeg">
                     </audio>
                 </div>
@@ -573,7 +573,7 @@ Ah ah ah it's not fine<br>
                 <h2>Lazy</h2>
                 <p><strong>By: Bruno Mars </strong></p>
                 <div class="audio-container">
-                    <audio controls autoplay>
+                    <audio id="audio9"  controls >
                         <source src="Bruno Mars - The Lazy Song (Lyrics).mp3" type="audio/mpeg">
                         
                     </audio>
@@ -642,7 +642,7 @@ Ah ah ah it's not fine<br>
                 <h2>EXO-M Peter Pan</h2>
                 <p><strong>By: EXO-M</strong></p>
                 <div class="audio-container">
-                    <audio controls autoplay>
+                    <audio id="audio10"  controls >
                         <source src="EXO-M - Peter Pan (彼得潘) (Color Coded ChinesePinYinEng Lyrics).mp3" type="audio/mpeg">
                         
                     </audio>
@@ -722,6 +722,49 @@ Dashi manna bol tenikka<br>
 <footer>
     <p>&copy; 2024 Sunsian. All rights reserved.</p>
 </footer>
+        <script>
+            const audios = document.querySelectorAll('audio'); // Select all audio elements
+
+            audios.forEach(audio => {
+                audio.addEventListener('play', () => {
+                    audios.forEach(otherAudio => {
+                        if (otherAudio !== audio && !otherAudio.paused) {
+                            otherAudio.pause();
+                        }
+                    });
+                });
+            });
+            const audio1 = document.getElementById('audio1');
+
+    // Attempt autoplay if supported
+    if (audio1.autoplay !== undefined) {
+      audio1.play().catch(error => {
+        // Autoplay was blocked, handle it here
+        console.error('Autoplay blocked:', error);
+        // Option 1: Show a play button
+        const playButton = document.createElement('button');
+        playButton.textContent = 'Play Audio';
+        playButton.addEventListener('click', () => {
+          audio1.play();
+        });
+        document.body.appendChild(playButton);
+
+        // Option 2: Start playing on user interaction (e.g., click anywhere)
+        document.addEventListener('click', () => {
+          audio1.play();
+          document.removeEventListener('click', arguments.callee); // Remove listener after one click
+        });
+      });
+    } else {
+      // Autoplay is not supported, show a play button
+      const playButton = document.createElement('button');
+      playButton.textContent = 'Play Audio';
+      playButton.addEventListener('click', () => {
+        audio1.play();
+      });
+      document.body.appendChild(playButton);
+    }
+        </script>
 </body>
 </html> 
 
