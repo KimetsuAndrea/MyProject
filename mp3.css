@@ -1,0 +1,210 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-image: url('sunflower.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+nav {
+    width: 100%;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 8px 12px;
+    display: inline-block;
+    transition: color 0.3s, transform 0.3s, text-decoration 0.3s;
+}
+
+nav ul li a:hover {
+    color: #FFD700;
+    transform: scale(1.1);
+    text-decoration: underline;
+}
+
+nav ul li a.active {
+    color: #FFD700;
+    text-decoration: underline;
+}
+
+main {
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 100px;
+    padding: 20px;
+    text-align: center;
+}
+
+.song-section {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.song-card {
+    background-color: rgba(255, 255, 255, 0.9);
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.song-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.song-info {
+    width: 100%;
+}
+
+.song-info h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #000;
+}
+
+.song-info h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: black;
+    background-color: transparent;
+    padding: 5px 10px;
+    display: inline-block;
+}
+
+.song-info p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.audio-container {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.audio-container audio {
+    width: 100%;
+    border-radius: 5px;
+    background-color: #f1f1f1;
+    border: none;
+}
+
+.lyrics {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    margin-top: 30px;
+    color: #333;
+    font-size: 1rem;
+    text-align: left;
+    line-height: 1.6;
+}
+
+.lyrics strong {
+    font-size: 1.2rem;
+    color: #333;
+    display: block;
+    margin-bottom: 10px;
+}
+
+footer {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    margin-top: 40px;
+}
+
+footer p {
+    font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        padding: 10px 0;
+    }
+
+    .song-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .song-card {
+        width: 90%;
+    }
+
+    .audio-container audio {
+        width: 100%;
+    }
+
+    .lyrics {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    nav ul li a {
+        font-size: 0.9rem;
+        padding: 6px 10px;
+    }
+
+    .song-info h1 {
+        font-size: 1.8rem;
+    }
+
+    .song-info h2 {
+        font-size: 1.5rem;
+    }
+
+    .song-img {
+        max-width: 80%;
+    }
+
+    .lyrics {
+        font-size: 0.9rem;
+    }
+}
